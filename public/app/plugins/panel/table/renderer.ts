@@ -132,7 +132,7 @@ export class TableRenderer {
     if (column.style.type === 'string') {
       return (v: any): any => {
         if (_.isArray(v)) {
-          v = v.join(', ');
+          v = JSON.stringify(JSON.parse(JSON.stringify(v)), null, 2);
         }
 
         const mappingType = column.style.mappingType || 0;
